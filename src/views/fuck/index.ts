@@ -1,5 +1,5 @@
-import {message, request} from '../../utils'
-import {Ref, ref} from 'vue'
+import { request } from "../../utils";
+import { Ref, ref } from "vue";
 
 /**
  * @function useGetText 获取随机文本相关逻辑
@@ -7,27 +7,27 @@ import {Ref, ref} from 'vue'
  * @return {function} getText 获取文本的请求方法
  * */
 interface useGetText {
-  randomText: Ref<string>,
-  getText: Function
+  randomText: Ref<string>;
+  getText: Function;
 }
 
 const useGetText = (): useGetText => {
-  let randomText = ref<string>("")
+  let randomText = ref<string>("");
 
   const getText = async (): Promise<void> => {
     try {
-      const {data} = await request('/random/text', 'get')
-      randomText.value = data.text
+      const { data } = await request("/random/text", "get");
+      randomText.value = data.text;
     } catch (e) {
-      console.error(e)
+      console.error(e);
     }
-  }
+  };
 
   return {
     randomText,
-    getText
-  }
-}
+    getText,
+  };
+};
 
 /**
  * @function useClickToggle 点击切换相关逻辑
@@ -35,32 +35,29 @@ const useGetText = (): useGetText => {
  * @return {function} handleClick 点击事件
  * */
 interface useClickToggle {
-  isToggle: Ref<boolean>,
-  handleClick: Function
+  isToggle: Ref<boolean>;
+  handleClick: Function;
 }
 
 const useClickToggle = (getText: Function): useClickToggle => {
-  let isToggle = ref<boolean>(true)
+  let isToggle = ref<boolean>(true);
   let timer = setTimeout(() => {
-    isToggle.value = false
-  }, 1000)
+    isToggle.value = false;
+  }, 1000);
 
   const handleClick = async (): Promise<void> => {
-    clearTimeout(timer)
-    await getText()
-    isToggle.value = true
+    clearTimeout(timer);
+    await getText();
+    isToggle.value = true;
     timer = setTimeout(() => {
-      isToggle.value = false
-    }, 1000)
-  }
+      isToggle.value = false;
+    }, 1000);
+  };
 
   return {
     isToggle,
-    handleClick
-  }
-}
+    handleClick,
+  };
+};
 
-export {
-  useGetText,
-  useClickToggle
-}
+export { useGetText, useClickToggle };
