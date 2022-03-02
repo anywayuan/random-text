@@ -14,6 +14,7 @@ export default defineComponent({
       document.title = '沙雕一下！'
       showMessage('info', '点击文字刷新哦～')
       getText()
+      console.log("Mounted");
     })
 
     return {
