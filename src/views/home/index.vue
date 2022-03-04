@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted } from "vue";
-import { useMainStore } from "../../store";
+import { useGlobalStore } from "../../store";
 
 export default defineComponent({
   name: "Home",
@@ -8,35 +8,34 @@ export default defineComponent({
   setup() {
     let show = ref<boolean>(true);
 
-    onMounted(() => {
-    });
+    onMounted(() => {});
 
-    const mainStore = useMainStore();
+    const globalStore = useGlobalStore();
 
     const countHandleClick = () => {
       // 方式一：直接修改state中的数据
-      /* mainStore.count++; */
+      /* globalStore.count++; */
 
       // 方式二：如果需要修改多个数据，建议使用$patch批量更新
-      /* mainStore.$patch({
-        count: mainStore.count+1,
+      /* globalStore.$patch({
+        count: globalStore.count+1,
         name: 'Yuan'
       }); */
 
       // 方式三：$patch一个函数,更好的批量更新方式
-      /* mainStore.$patch((state) => {
+      /* globalStore.$patch((state) => {
         state.count++;
         state.name = "PIGTT";
       }); */
 
       // 方式四：逻辑比较多的时候可以封装到action中
-      mainStore.changeState(10);
+      globalStore.changeState(10);
     };
 
     return {
       show,
       countHandleClick,
-      mainStore,
+      globalStore,
     };
   },
 });
@@ -46,10 +45,12 @@ export default defineComponent({
   <div class="page-container">
     <a-button type="primary" @click="show = !show">切换</a-button>
     <transition>
-      <div v-if="show" class="box animate__animated">{{ mainStore.name }}</div>
+      <div v-if="show" class="box animate__animated">
+        {{ globalStore.name }}
+      </div>
     </transition>
-    <h1 @click="countHandleClick">{{ mainStore.count }}</h1>
-    <h2>{{ mainStore.demo }}</h2>
+    <h1 @click="countHandleClick">{{ globalStore.count }}</h1>
+    <h2>{{ globalStore.demo }}</h2>
   </div>
 </template>
 

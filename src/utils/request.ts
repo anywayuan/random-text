@@ -33,46 +33,55 @@ instance.interceptors.response.use(function (response) {
   message('error', '服务异常')
   return Promise.reject(error);
 });
-
-export default function request(url: string, method: string, params?: Object, contentType?: string) {
-  let lang = localStorage.getItem('lang') === 'zh' ? 'zh_cn' : 'en_us';
+/**
+ *@param {string} url 请求url
+ *@param {string} method 请求方式
+ *@param {object} params 请求参数
+ *@param {string} contentType 参数格式
+ */
+export default async function request(url: string, method: string, params?: Object, contentType?: string) {
+  let lang: string = localStorage.getItem('lang') === 'zh' ? 'zh_cn' : 'en_us';
 
   if (method === 'get') {
-    return instance.get(`${base}${url}`, {
+    const res = await instance.get(`${base}${url}`, {
       params: params,
       headers: {
         'apiMethod': 'ajax',
         'content-type': 'application/x-www-form-urlencoded',
         lang: lang
       }
-    }).then(res => res.data);
+    });
+    return res.data;
   }
 
   if (contentType === 'formData') {
-    return instance.post(`${base}${url}`, params, {
+    const res = await instance.post(`${base}${url}`, params, {
       headers: {
         'apiMethod': 'ajax',
         'content-type': 'multipart/form-data',
         lang: lang
       }
-    }).then(res => res.data);
+    });
+    return res.data;
   }
 
   if (contentType === 'form') {
-    return instance.post(`${base}${url}`, qs.stringify(params), {
+    const res = await instance.post(`${base}${url}`, qs.stringify(params), {
       headers: {
         'apiMethod': 'ajax',
         'content-type': 'application/x-www-form-urlencoded',
         lang: lang
       }
-    }).then(res => res.data);
+    });
+    return res.data;
   }
 
-  return instance.post(`${base}${url}`, params, {
+  const res = await instance.post(`${base}${url}`, params, {
     headers: {
       'apiMethod': 'ajax',
       'content-type': 'application/json;charset=UTF-8',
       lang: lang
     }
-  }).then(res => res.data);
+  });
+  return res.data;
 }

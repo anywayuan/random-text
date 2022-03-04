@@ -1,6 +1,6 @@
 <script lang="ts">
-import {defineComponent, ref, reactive, onMounted} from 'vue'
-import {message as showMessage, request} from '../../utils'
+import {defineComponent, onMounted} from 'vue'
+import {message as showMessage} from '../../utils'
 import {useGetText, useClickToggle} from './'
 
 export default defineComponent({
@@ -10,11 +10,10 @@ export default defineComponent({
     const {randomText, getText} = useGetText()
     const {isToggle, handleClick} = useClickToggle(getText)
 
-    onMounted(() => {
+    onMounted(async () => {
+      await getText()
       document.title = '沙雕一下！'
       showMessage('info', '点击文字刷新哦～')
-      getText()
-      console.log("Mounted");
     })
 
     return {

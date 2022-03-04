@@ -1,16 +1,21 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-
-</script>
-
 <template>
-<!--    <div class="nav-tabs">-->
-<!--      <router-link to="/home">首页</router-link>-->
-<!--      <router-link to="/fuck">关于</router-link>-->
-<!--    </div>-->
-  <router-view/>
+  <!-- <router-link to="/home">Home</router-link>
+  <router-link to="/fuck">Fuck</router-link> -->
+
+  <router-view v-slot="{ Component }">
+    <component :is="Component" />
+  </router-view>
 </template>
 
-<style>
+<script lang="ts">
+import { defineComponent } from "vue";
+export default defineComponent({
+  name: "App",
+  setup() {
+    return {};
+  },
+});
+</script>
+
+<style scoped lang="scss">
 </style>
