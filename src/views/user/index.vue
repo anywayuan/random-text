@@ -1,6 +1,6 @@
 <script lang="ts">
 import {defineComponent, ref, Ref, onMounted, toRefs} from "vue";
-import {useUserInfoStore, useGlobalStore, useAxiosPendingStore} from "../../store";
+import {useUserInfoStore, useGlobalStore} from "../../store";
 import {request} from '../../utils'
 
 interface useGetUserInfo {
