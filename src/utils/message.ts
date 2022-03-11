@@ -1,4 +1,7 @@
-import { message } from "ant-design-vue";
+/**
+ * 二次封装 message 全局提示
+ */
+import {message} from "ant-design-vue";
 
 /**
  * @param {string} type 提示类型

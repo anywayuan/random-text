@@ -1,4 +1,6 @@
-/**数组扁平化 */
+/**
+ * @function flat 数组扁平化处理
+ */
 const flat = (arr: any[]) => {
   let newArr: any[] = [];
   for (const i of arr) {

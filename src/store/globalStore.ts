@@ -1,6 +1,6 @@
-import { defineStore } from "pinia";
+import {defineStore} from "pinia";
 
-export const useGlobalStore = defineStore("main", {
+const useGlobalStore = defineStore("main", {
   /**
    * 储存全局状态
    * 1. state必须是函数：为了在服务端渲染的时候避免交叉请求导致数据状态污染。
@@ -40,13 +40,14 @@ export const useGlobalStore = defineStore("main", {
       // this.$patch({});
 
       // 3.
-      this.$patch((state) => {
+      this.$patch(state => {
         // state：数据更新后的上次数据
-        console.log(state.name);
 
-        this.count += count;
-        this.name = "PIGTT";
+        state.count += count;
+        state.name = "PIGTT" + state.count;
       });
     },
   },
 });
+
+export default useGlobalStore

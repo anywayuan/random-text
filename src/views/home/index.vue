@@ -44,6 +44,8 @@ export default defineComponent({
 <template>
   <div class="page-container">
     <a-button type="primary" @click="show = !show">切换</a-button>
+    <a-button type="primary" ghost danger href="/user">to user</a-button>
+
     <transition>
       <div v-if="show" class="box animate__animated">
         {{ globalStore.name }}
@@ -62,7 +64,6 @@ export default defineComponent({
   .box {
     font-size: 28px;
     font-weight: 500;
-    color: #fff;
     color: #008c8c;
     width: 110px;
   }
