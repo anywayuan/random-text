@@ -11,7 +11,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="page-container"></div>
+  <div class="page-container">home</div>
 </template>
 
 <style scoped lang="scss">
