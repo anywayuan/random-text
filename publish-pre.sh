@@ -1,1 +1,1 @@
-scp -r ./dist/* root@121.4.47.140:/www/wwwroot/fuck.yuanki.cn
+scp -r ./dist/* root@150.158.167.230:/www/wwwroot/fuck.yuanki.cn

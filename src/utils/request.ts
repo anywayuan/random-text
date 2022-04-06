@@ -7,8 +7,8 @@ import {message} from '../utils'
 import {addPending, removePending} from './CancelAxiosRequest'
 
 const ENV_PRO: string = 'https://api.yuanki.cn/api';
-// const ENV_DEV: string = 'http://127.0.0.1:3000/api';
-const ENV_DEV: string = 'https://api.yuanki.cn/api';
+const ENV_DEV: string = 'http://127.0.0.1:3000/api';
+// const ENV_DEV: string = 'https://api.yuanki.cn/api';
 const base: string = import.meta.env.PROD ? ENV_PRO : ENV_DEV
 
 // 创建axios实例
@@ -33,7 +33,6 @@ instance.interceptors.request.use(function (config) {
 instance.interceptors.response.use(function (response) {
   // 对响应数据做点什么
   removePending(response)
-  console.log(response)
   return response;
 }, function (error) {
   // 对响应错误做点什么
