@@ -12,4 +12,5 @@ const flat = (arr: any[]) => {
   }
   return newArr;
 };
+
 export default flat;

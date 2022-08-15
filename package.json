@@ -1,19 +1,22 @@
 {
   "name": "vite-project",
   "version": "1.0.0",
+  "license": "ISC",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/node": "^18.0.1",
     "animate.css": "^4.1.1",
-    "ant-design-vue": "^2.2.8",
+    "ant-design-vue": "^3.2.0",
     "axios": "^0.24.0",
     "dayjs": "^1.10.7",
     "pinia": "^2.0.11",
     "qs": "^6.10.3",
     "vue": "^3.2.25",
+    "vue-kline": "^1.2.2",
     "vue-router": "^4.0.12"
   },
   "devDependencies": {

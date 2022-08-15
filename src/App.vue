@@ -3,12 +3,13 @@
   <router-link to="/fuck">Fuck</router-link> -->
 
   <router-view v-slot="{ Component }">
-    <component :is="Component" />
+    <component :is="Component"/>
   </router-view>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import {defineComponent} from "vue";
+
 export default defineComponent({
   name: "App",
   setup() {
@@ -17,5 +18,6 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+@import "./common/style/global.scss";
 </style>

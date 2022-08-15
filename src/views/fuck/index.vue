@@ -1,6 +1,6 @@
 <script lang="ts">
 import {defineComponent, onMounted} from 'vue'
-import {message as showMessage} from '../../utils'
+import {message as showMessage, formatNum} from '../../utils'
 import {useGetText, useClickToggle} from './'
 
 export default defineComponent({
@@ -14,6 +14,7 @@ export default defineComponent({
       await getText()
       document.title = '沙雕一下！'
       showMessage('info', '点击文字刷新哦～')
+      console.log(formatNum(123.789, 2))
     })
 
     return {
