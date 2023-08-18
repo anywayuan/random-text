@@ -10,10 +10,10 @@ import {message} from "../utils";
 import {addPending, removePending} from "./CancelAxiosRequest";
 
 /* 生产环境地址 */
-const ENV_PRO: string = "https://api.yuanki.cn/api";
+const ENV_PRO: string = "/api";
 /* 开发环境地址 */
 // const ENV_DEV: string = 'http://127.0.0.1:3000/api';
-const ENV_DEV: string = "https://api.yuanki.cn/api";
+const ENV_DEV: string = "/api";
 
 /* 
   import.meta.env.PROD: {boolean} 应用是否运行在生产环境。
@@ -79,7 +79,7 @@ export default async function request(
 
   // get request
   if (method === "get") {
-    const res = await instance.get(`${base}${url}`, {
+    const res = await instance.get(url, {
       params: params,
       headers: {
         apiMethod: "ajax",
@@ -92,7 +92,7 @@ export default async function request(
 
   // post request --> form-data
   if (contentType === "formData") {
-    const res = await instance.post(`${base}${url}`, params, {
+    const res = await instance.post(url, params, {
       headers: {
         apiMethod: "ajax",
         "content-type": "multipart/form-data",
@@ -104,7 +104,7 @@ export default async function request(
 
   // post request --> form
   if (contentType === "form") {
-    const res = await instance.post(`${base}${url}`, qs.stringify(params), {
+    const res = await instance.post(url, qs.stringify(params), {
       headers: {
         apiMethod: "ajax",
         "content-type": "application/x-www-form-urlencoded",
@@ -115,7 +115,7 @@ export default async function request(
   }
 
   // post request --> json
-  const res = await instance.post(`${base}${url}`, params, {
+  const res = await instance.post(url, params, {
     headers: {
       apiMethod: "ajax",
       "content-type": "application/json;charset=UTF-8",
