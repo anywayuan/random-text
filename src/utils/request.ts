@@ -10,10 +10,10 @@ import {message} from "../utils";
 import {addPending, removePending} from "./CancelAxiosRequest";
 
 /* 生产环境地址 */
-const ENV_PRO: string = "/api";
+const ENV_PRO: string = "/api/v1";
 /* 开发环境地址 */
 // const ENV_DEV: string = 'http://127.0.0.1:3000/api';
-const ENV_DEV: string = "/api";
+const ENV_DEV: string = "/api/v1";
 
 /* 
   import.meta.env.PROD: {boolean} 应用是否运行在生产环境。
@@ -46,7 +46,7 @@ instance.interceptors.response.use(
   function (response) {
     removePending(response);
     const {data} = response;
-    if (data.code !== 0) {
+    if (data.code !== 200) {
       message("error", data.message);
       return Promise.reject(data);
     }

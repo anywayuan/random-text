@@ -16,7 +16,7 @@ const useGetText = (): useGetText => {
 
   const getText = async (): Promise<void> => {
     try {
-      const { data } = await request("/random/text", "get");
+      const { data } = await request("/fuck", "get");
       randomText.value = data.text;
     } catch (e) {
       console.error(e);
