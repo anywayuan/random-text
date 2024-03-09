@@ -1,5 +1,6 @@
 import { request } from "../../utils";
 import { Ref, ref } from "vue";
+import { useThrottleFn } from "@vueuse/core";
 
 /**
  * @function useGetText 获取随机文本相关逻辑
@@ -13,11 +14,24 @@ interface useGetText {
 
 const useGetText = (): useGetText => {
   let randomText = ref<string>("");
+  const ids = ref<number[]>([0]);
 
   const getText = async (): Promise<void> => {
     try {
-      const { data } = await request("/fuck", "get");
-      randomText.value = data.text;
+      const params = {
+        ids: ids.value,
+      };
+
+      const { data } = await request("/fuck", "", params);
+      console.log(data);
+
+      if (ids.value.length >= data.count + 1) {
+        ids.value = [0];
+      }
+
+      ids.value.push(data.data.id);
+
+      randomText.value = data.data.text;
     } catch (e) {
       console.error(e);
     }
@@ -45,13 +59,17 @@ const useClickToggle = (getText: Function): useClickToggle => {
     isToggle.value = false;
   }, 1000);
 
-  const handleClick = async (): Promise<void> => {
+  const debouncedFn = useThrottleFn(async () => {
     clearTimeout(timer);
     await getText();
     isToggle.value = true;
     timer = setTimeout(() => {
       isToggle.value = false;
     }, 1000);
+  }, 1500);
+
+  const handleClick = async () => {
+    debouncedFn();
   };
 
   return {

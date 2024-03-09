@@ -6,8 +6,8 @@
  */
 import axios from "axios";
 import qs from "qs";
-import {message} from "../utils";
-import {addPending, removePending} from "./CancelAxiosRequest";
+import { message } from "../utils";
+import { addPending, removePending } from "./CancelAxiosRequest";
 
 /* 生产环境地址 */
 const ENV_PRO: string = "/api/v1";
@@ -15,7 +15,7 @@ const ENV_PRO: string = "/api/v1";
 // const ENV_DEV: string = 'http://127.0.0.1:3000/api';
 const ENV_DEV: string = "/api/v1";
 
-/* 
+/*
   import.meta.env.PROD: {boolean} 应用是否运行在生产环境。
   import.meta.env.DEV: {boolean} 应用是否运行在开发环境 (永远与 import.meta.env.PROD相反)。
   vite环境变量文档：https://cn.vitejs.dev/guide/env-and-mode.html
@@ -45,12 +45,12 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   function (response) {
     removePending(response);
-    const {data} = response;
-    if (data.code !== 200) {
-      message("error", data.message);
-      return Promise.reject(data);
+    const { data } = response;
+    if (data.code === 200 || data.code === 201) {
+      return response;
     }
-    return response;
+    message("error", data.message);
+    return Promise.reject(data);
   },
   function (error) {
     if (axios.isCancel(error)) {
@@ -71,7 +71,7 @@ instance.interceptors.response.use(
  */
 export default async function request(
   url: string,
-  method: string,
+  method: string | Object,
   params?: Object,
   contentType?: string
 ) {
@@ -87,7 +87,7 @@ export default async function request(
         lang: lang,
       },
     });
-    return res.data;
+    return res;
   }
 
   // post request --> form-data
@@ -99,7 +99,7 @@ export default async function request(
         lang: lang,
       },
     });
-    return res.data;
+    return res;
   }
 
   // post request --> form
@@ -111,16 +111,20 @@ export default async function request(
         lang: lang,
       },
     });
-    return res.data;
+    return res;
   }
 
   // post request --> json
-  const res = await instance.post(url, params, {
-    headers: {
-      apiMethod: "ajax",
-      "content-type": "application/json;charset=UTF-8",
-      lang: lang,
-    },
-  });
+  const res = await instance.post(
+    url,
+    { ...params },
+    {
+      headers: {
+        apiMethod: "ajax",
+        "content-type": "application/json;charset=UTF-8",
+        lang: lang,
+      },
+    }
+  );
   return res.data;
 }

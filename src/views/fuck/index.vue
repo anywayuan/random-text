@@ -9,10 +9,10 @@ export default defineComponent({
   setup() {
     const {randomText, getText} = useGetText()
     const {isToggle, handleClick} = useClickToggle(getText)
+    document.title = '沙雕一下！'
 
     onMounted(async () => {
       await getText()
-      document.title = '沙雕一下！'
       showMessage('info', '点击文字刷新哦～')
     })
 

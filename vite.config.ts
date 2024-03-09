@@ -32,6 +32,15 @@ export default defineConfig({
     /* 设置启动ip */
     host: "0.0.0.0",
     port: 8830,
+    proxy: {
+      '/api/v1/': {
+        secure: false,
+        // target: "https://api.yuanki.cn",
+        target: "http://localhost:3000",
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/api\/v1/, '/api/v1'),
+      },
+    }
   },
   build: {
     minify: "terser",
