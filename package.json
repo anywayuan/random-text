@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@antfu/utils": "0.7.3",
+    "@antfu/utils": "0.7.5",
     "@types/node": "^18.19.23",
     "@vueuse/core": "^10.9.0",
     "animate.css": "^4.1.1",

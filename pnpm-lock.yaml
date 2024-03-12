@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@antfu/utils':
-    specifier: 0.7.3
-    version: 0.7.3
+    specifier: 0.7.5
+    version: 0.7.5
   '@types/node':
     specifier: ^18.19.23
     version: 18.19.23
@@ -102,8 +102,8 @@ packages:
       '@types/throttle-debounce': 2.1.0
     dev: true
 
-  /@antfu/utils@0.7.3:
-    resolution: {integrity: sha512-sAPXKvlJFVQB4cvmdGoUa9IAavzRrm7N2ctxdD1GuAEIOZu8BRrv2SUzquGXTpRDUa0sY7OkkVHqhi6ySMnMTg==}
+  /@antfu/utils@0.7.5:
+    resolution: {integrity: sha512-dlR6LdS+0SzOAPx/TPRhnoi7hE251OVeT2Snw0RguNbBSbjUHdWr0l3vcUUDg26rEysT89kCbtw1lVorBXLLCg==}
     dev: false
 
   /@babel/helper-string-parser@7.23.4:
