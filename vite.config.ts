@@ -35,8 +35,8 @@ export default defineConfig({
     proxy: {
       '/api/v1/': {
         secure: false,
-        // target: "https://api.yuanki.cn",
-        target: "http://localhost:3000",
+        target: "https://api.yuanki.cn",
+        // target: "http://localhost:3000",
         changeOrigin: true,
         rewrite: path => path.replace(/^\/api\/v1/, '/api/v1'),
       },
