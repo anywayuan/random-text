@@ -8,11 +8,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@antfu/utils": "0.7.3",
     "@types/node": "^18.19.23",
     "@vueuse/core": "^10.9.0",
     "animate.css": "^4.1.1",
     "ant-design-vue": "^3.2.20",
-    "axios": "^0.24.0",
+    "axios": "^1.6.7",
     "dayjs": "^1.11.10",
     "pinia": "^2.1.7",
     "qs": "^6.12.0",
@@ -28,7 +29,7 @@
     "sass-loader": "^12.6.0",
     "typescript": "^4.9.5",
     "unplugin-vue-components": "^0.17.21",
-    "vite": "2.9.16",
+    "vite": "2.9.17",
     "vite-plugin-compression": "^0.4.0",
     "vue-tsc": "^0.29.8"
   }
