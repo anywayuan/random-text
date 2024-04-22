@@ -48,7 +48,7 @@ devDependencies:
     version: 6.9.12
   '@vitejs/plugin-vue':
     specifier: ^2.3.4
-    version: 2.3.4(vite@2.9.17)(vue@3.4.21)
+    version: 2.3.4(vite@2.9.18)(vue@3.4.21)
   less:
     specifier: ^4.2.0
     version: 4.2.0
@@ -63,13 +63,13 @@ devDependencies:
     version: 4.9.5
   unplugin-vue-components:
     specifier: ^0.17.21
-    version: 0.17.21(vite@2.9.17)(vue@3.4.21)(webpack@5.90.3)
+    version: 0.17.21(vite@2.9.18)(vue@3.4.21)(webpack@5.90.3)
   vite:
-    specifier: 2.9.17
-    version: 2.9.17(less@4.2.0)(sass@1.71.1)
+    specifier: 2.9.18
+    version: 2.9.18(less@4.2.0)(sass@1.71.1)
   vite-plugin-compression:
     specifier: ^0.4.0
-    version: 0.4.0(vite@2.9.17)
+    version: 0.4.0(vite@2.9.18)
   vue-tsc:
     specifier: ^0.29.8
     version: 0.29.8(typescript@4.9.5)
@@ -277,14 +277,14 @@ packages:
     resolution: {integrity: sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==}
     dev: false
 
-  /@vitejs/plugin-vue@2.3.4(vite@2.9.17)(vue@3.4.21):
+  /@vitejs/plugin-vue@2.3.4(vite@2.9.18)(vue@3.4.21):
     resolution: {integrity: sha512-IfFNbtkbIm36O9KB8QodlwwYvTEsJb4Lll4c2IwB3VHc2gie2mSPtSzL0eYay7X2jd/2WX02FjSGTWR6OPr/zg==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       vite: ^2.5.10
       vue: ^3.2.25
     dependencies:
-      vite: 2.9.17(less@4.2.0)(sass@1.71.1)
+      vite: 2.9.18(less@4.2.0)(sass@1.71.1)
       vue: 3.4.21(typescript@4.9.5)
     dev: true
 
@@ -2072,7 +2072,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     dev: true
 
-  /unplugin-vue-components@0.17.21(vite@2.9.17)(vue@3.4.21)(webpack@5.90.3):
+  /unplugin-vue-components@0.17.21(vite@2.9.18)(vue@3.4.21)(webpack@5.90.3):
     resolution: {integrity: sha512-jkXksUF6zkNbzHQbw1DdrsQyVoMZGESRZDIGd9x7nUP+65nHdpBCY/JmlxSjKbuTrOwfMsk6FQFa0RpRueOCKg==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -2094,7 +2094,7 @@ packages:
       magic-string: 0.25.9
       minimatch: 3.1.2
       resolve: 1.22.8
-      unplugin: 0.3.3(vite@2.9.17)(webpack@5.90.3)
+      unplugin: 0.3.3(vite@2.9.18)(webpack@5.90.3)
       vue: 3.4.21(typescript@4.9.5)
     transitivePeerDependencies:
       - esbuild
@@ -2104,7 +2104,7 @@ packages:
       - webpack
     dev: true
 
-  /unplugin@0.3.3(vite@2.9.17)(webpack@5.90.3):
+  /unplugin@0.3.3(vite@2.9.18)(webpack@5.90.3):
     resolution: {integrity: sha512-WjZWpUqqcYPQ/efR00Zm2m1+J1LitwoZ4uhHV4VdZ+IpW0Nh/qnDYtVf+nLhozXdGxslMPecOshVR7NiWFl4gA==}
     peerDependencies:
       esbuild: '>=0.13'
@@ -2121,7 +2121,7 @@ packages:
       webpack:
         optional: true
     dependencies:
-      vite: 2.9.17(less@4.2.0)(sass@1.71.1)
+      vite: 2.9.18(less@4.2.0)(sass@1.71.1)
       webpack: 5.90.3
       webpack-virtual-modules: 0.4.6
     dev: true
@@ -2148,7 +2148,7 @@ packages:
       punycode: 2.3.1
     dev: true
 
-  /vite-plugin-compression@0.4.0(vite@2.9.17):
+  /vite-plugin-compression@0.4.0(vite@2.9.18):
     resolution: {integrity: sha512-CGC8DfIey0k4S4o54ylwFIzT1Mjb9s7cMmlXj6DMM1MZZIeWFjPCJc6YZWjnnS28ul3r7R1nmihvYvGg/lOYsQ==}
     peerDependencies:
       vite: '>=2.0.0'
@@ -2156,13 +2156,13 @@ packages:
       chalk: 4.1.2
       debug: 4.3.4
       fs-extra: 10.1.0
-      vite: 2.9.17(less@4.2.0)(sass@1.71.1)
+      vite: 2.9.18(less@4.2.0)(sass@1.71.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite@2.9.17(less@4.2.0)(sass@1.71.1):
-    resolution: {integrity: sha512-XxcRzra6d7xrKXH66jZUgb+srThoPu+TLJc06GifUyKq9JmjHkc1Numc8ra0h56rju2jfVWw3B3fs5l3OFMvUw==}
+  /vite@2.9.18(less@4.2.0)(sass@1.71.1):
+    resolution: {integrity: sha512-sAOqI5wNM9QvSEE70W3UGMdT8cyEn0+PmJMTFvTB8wB0YbYUWw3gUbY62AOyrXosGieF2htmeLATvNxpv/zNyQ==}
     engines: {node: '>=12.2.0'}
     hasBin: true
     peerDependencies:
