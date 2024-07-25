@@ -1,22 +1,17 @@
 import {createRouter, createWebHistory} from "vue-router";
 
-const Home = () => import("@/views/home/index.vue");
 const Fuck = () => import("@/views/fuck/index.vue");
 
 const routes = [
-  {path: "/", redirect: "/fuck"},
   {
-    path: "/home",
-    name: "首页",
-    component: Home,
-    meta: {index: 1},
-  },
-  {
-    path: "/fuck",
-    name: "关于",
+    path: "/",
+    name: "Fuck",
     component: Fuck,
-    meta: {index: 2},
   },
+  {
+    path: "/:pathMatch(.*)",
+    redirect: "/"
+  }
 ];
 const router = createRouter({
   history: createWebHistory(),
